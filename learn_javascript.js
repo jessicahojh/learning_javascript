@@ -36,16 +36,18 @@ console.log(plantNeedsWater_3('Friday'))
 
 // You can do concise arrow functions if there's only one parameter
 
-const squareNum = (num) => {
+const squareNum_1 = (num) => {
   return num * num;
 };
 
 // becomes
 
-const squareNum = num => num * num;
+const squareNum_2 = num => num * num;
 
 // ---------------------------------------------------------------------------
 
+
+// shift gets rid of the first item
 const groceryList = ['orange juice', 'bananas', 'coffee beans', 'brown rice', 
 'pasta', 'coconut oil', 'plantains'];
 
@@ -53,13 +55,19 @@ groceryList.shift();
 
 console.log(groceryList);
 
+// unshift adds an item to the beginning
+
 groceryList.unshift('popcorn');
 
 console.log(groceryList);
 
+// slice slices 
+
 console.log(groceryList.slice(1, 4));
 
 console.log(groceryList);
+
+// indexOf gives you the index of an item
 
 const pastaIndex = groceryList.indexOf('pasta');
 
@@ -74,6 +82,8 @@ for (let counter = 0; counter < 4; counter++) {
 for (let counter = 3; counter >= 0; counter--){
   console.log(counter);
 }
+
+let vacationSpots = ['HK', 'NY', 'SF']
 
 for (let i = 0; i < vacationSpots.length; i++ ){
   console.log('I would love to visit ' + vacationSpots[i]);
@@ -95,6 +105,8 @@ for (let i = 0; i < bobsFollowers.length; i++){
     }
 }
 
+console.log(mutualFollowers)
+
 // ----------------------------------------------------------------------------
 
 
@@ -115,7 +127,9 @@ let cupsAdded = 0
 
 do {
   cupsAdded ++
+  console.log(cupsAdded)
 } while (cupsAdded < cupsOfSugarNeeded);
+
 
 // break
 
@@ -161,9 +175,9 @@ console.log(secretMessage.join(''));
 
 const bigNumbers = [100, 200, 300, 400, 500];
 
-const smallNumbers = bigNumbers.map(num => num/100);
+const smallNumbers_1 = bigNumbers.map(num => num/100);
 
-console.log(smallNumbers)
+console.log(smallNumbers_1)
 
 //
 
@@ -173,12 +187,16 @@ const onlyNumbers = things.filter(thing => {
   return typeof thing === 'number';
 });
 
+console.log(onlyNumbers)
+
 //
 const randomNumbers = [375, 200, 3.14, 7, 13, 852];
 
-const smallNumbers = randomNumbers.filter(num => {
+const smallNumbers_2 = randomNumbers.filter(num => {
   return num < 250;
 })
+
+console.log(smallNumbers_2)
 
 //
 
@@ -188,9 +206,11 @@ const longFavoriteWords = favoriteWords.filter(word => {
   return word.length > 7;
 })
 
+console.log(longFavoriteWords)
+
 // .findIndex() method 
 
-const animals = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
+const animals_1 = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
 
 const foundAnimal = animals.findIndex(animal => {
   return animal === 'elephant';
@@ -199,6 +219,9 @@ const foundAnimal = animals.findIndex(animal => {
 const startsWithS = animals.findIndex(animal => {
   return animal[0] === 's' ? true : false;
 });
+
+console.log(foundAnimal)
+console.log(startsWithS)
 
 // .reduce() method
 
@@ -211,6 +234,79 @@ const newSum = newNumbers.reduce((accumulator, currentValue) => {
 }, 10);
 
 console.log(newSum);
+
+//
+console.log('')
+
+
+const words = ['unique', 'uncanny', 'pique', 'oxymoron', 'guise'];
+
+
+console.log(words.some(word => {
+  return word.length < 6;
+}));
+
+// Use filter to create a new array
+const interestingWords = words.filter((word) => {return word.length > 5});
+
+console.log(interestingWords)
+
+console.log(interestingWords.every((word) => {return word.length > 5}));
+
+//
+
+const cities = ['Orlando', 'Dubai', 'Edinburgh', 'Chennai', 'Accra', 'Denver', 'Eskisehir', 'Medellin', 'Yokohama'];
+
+const nums = [1, 50, 75, 200, 350, 525, 1000];
+
+//  Choose a method that will return undefined
+cities.forEach(city => console.log('Have you visited ' + city + '?'));
+
+// Choose a method that will return a new array
+const longCities = cities.filter(city => city.length > 7);
+
+// Choose a method that will return a single value
+const word = cities.reduce((acc, currVal) => {
+  return acc + currVal[0]
+}, "C");
+
+console.log(word)
+
+// Choose a method that will return a new array
+const smallerNums = nums.map(num => num - 5);
+
+// Choose a method that will return a boolean value
+nums.every(num => num < 0);
+
+//
+
+//forEach() is used to execute the same code on every element in an array but 
+//does not change the array and returns undefined.
+//map() executes the same code on every element in an array and returns a new 
+//array with the updated elements.
+//filter() checks every element in an array to see if it meets certain criteria 
+//and returns a new array with the elements that return truthy for the criteria.
+//findIndex() returns the index of the first element of an array which satisfies 
+//a condition in the callback function. It returns -1 if none of the elements in the array satisfies the condition.
+//reduce() iterates through an array and takes the values of the elements and 
+//returns a single value.
+//All iterator methods takes a callback function that can be pre-defined, or a 
+//function expression, or an arrow function.
+
+//------------------------------------------------------------------------------
+
+// Objects
+
+let spaceship = {
+  homePlanet: 'Earth',
+  color: 'silver',
+  'Fuel Type': 'Turbo Fuel',
+  numCrew: 5,
+  flightPath: ['Venus', 'Mars', 'Saturn']
+};
+
+let crewCount = spaceship.numCrew;
+let planetArray = spaceship.flightPath;
 
 
 
