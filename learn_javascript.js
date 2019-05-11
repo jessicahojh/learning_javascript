@@ -308,8 +308,44 @@ let spaceship = {
 let crewCount = spaceship.numCrew;
 let planetArray = spaceship.flightPath;
 
+// Methods
+
+const alienShip_1 = {
+  invade_1: function () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+// new JS ES6 method
+
+const alienShip_2 = {
+  invade_2 () { 
+    console.log('Hello! We have come to dominate your planet. Instead of Earth, it shall be called New Xaculon.')
+  }
+};
+
+alienShip_1.invade_1();
+
+alienShip_2.invade_2();
 
 
+// ------
+
+let retreatMessage = 'We no longer wish to conquer your planet. It is full of dogs, which we do not care for.';
+
+
+let alienShip = {
+    
+  retreat() {
+    console.log(retreatMessage)
+  },
+  takeOff() {
+    console.log('Spim... Borp... Glix... Blastoff!')
+  }
+};
+
+alienShip.retreat();
+alienShip.takeOff();
 
 
 
