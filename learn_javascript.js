@@ -107,6 +107,8 @@ for (let i = 0; i < bobsFollowers.length; i++){
 
 console.log(mutualFollowers)
 
+
+
 // ----------------------------------------------------------------------------
 
 
@@ -212,16 +214,18 @@ console.log(longFavoriteWords)
 
 const animals_1 = ['hippo', 'tiger', 'lion', 'seal', 'cheetah', 'monkey', 'salamander', 'elephant'];
 
-const foundAnimal = animals.findIndex(animal => {
+const foundAnimal = animals_1.findIndex(animal => {
   return animal === 'elephant';
 });
 
-const startsWithS = animals.findIndex(animal => {
+const startsWithS = animals_1.findIndex(animal => {
   return animal[0] === 's' ? true : false;
 });
 
+console.log('--')
 console.log(foundAnimal)
 console.log(startsWithS)
+console.log('--')
 
 // .reduce() method
 
@@ -308,6 +312,9 @@ let spaceship = {
 let crewCount = spaceship.numCrew;
 let planetArray = spaceship.flightPath;
 
+console.log(crewCount)
+console.log(planetArray)
+
 // Methods
 
 const alienShip_1 = {
@@ -347,6 +354,71 @@ let alienShip = {
 alienShip.retreat();
 alienShip.takeOff();
 
+// ------
+
+
+let spaceship_2 = {
+    crew: {
+    captain: { 
+        name: 'Lily', 
+        degree: 'Computer Engineering', 
+        cheerTeam() { console.log('You got this!') } 
+        },
+    'chief officer': { 
+        name: 'Dan', 
+        degree: 'Aerospace Engineering', 
+        agree() { console.log('I agree, captain!') } 
+        },
+    medic: { 
+        name: 'Clementine', 
+        degree: 'Physics', 
+        announce() { console.log(`Jets on!`) } },
+    translator: {
+        name: 'Shauna', 
+        degree: 'Conservation Science', 
+        powerFuel() { console.log('The tank is full!') } 
+        }
+    }
+}; 
+
+
+for (let crewMember in spaceship_2.crew) {
+  console.log(`${crewMember}: ${spaceship_2.crew[crewMember].name}`)
+};
+
+for (let crewMember in spaceship_2.crew) {
+  console.log(`${spaceship_2.crew[crewMember].name}: ${spaceship_2.crew[crewMember].degree}`)
+};
+
+
+// ---------
+
+const goat = {
+  dietType: 'herbivore',
+  makeSound() {
+    console.log('baaa');
+  },
+  diet() {
+    console.log(this.dietType);
+  }
+};
+
+goat.diet(); 
+// Output: herbivore
+
+//------------
+
+const robot = {
+  model: '1E78V2',
+  energyLevel: 100,
+  provideInfo() { 
+    return `I am ${this.model} and my current energy level is ${this.energyLevel}.`
+  }
+};
+
+console.log(robot.provideInfo());
+
+//---------------
 
 
 
