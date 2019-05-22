@@ -420,11 +420,163 @@ console.log(robot.provideInfo());
 
 //---------------
 
+// Getters
+// Getters are methods that get and return the internal properties of an object. 
+// But they can do more than just retrieve the value of a property!
 
+const robot = {
+  _model: '1E78V2',
+  _energyLevel: 100,
+  get energyLevel(){
+    if(typeof this._energyLevel === 'number') {
+      return 'My current energy level is ' + this._energyLevel
+    } else {
+      return "System malfunction: cannot retrieve energy level"
+    }
+  }
+};
 
+console.log(robot.energyLevel);
 
+// Setters
+// Setter methods reassign values of existing properties within an object
 
+const robot = {
+  _model: '1E78V2',
+  _energyLevel: 100,
+  _numOfSensors: 15,
+  get numOfSensors(){
+    if(typeof this._numOfSensors === 'number'){
+      return this._numOfSensors;
+    } else {
+      return 'Sensors are currently down.'
+    }
+  },
+  set numOfSensors(num){
+    if(typeof this._numOfSensors === 'number' &&        num >= 0){
+      this._numOfSensors = num
+    } else{
+      console.log('Pass in a number that is greater than or equal to 0')
+    }
+  }
+};
 
+robot.numOfSensors = 100
+console.log(robot.numOfSensors)
 
+// Factory Functions
 
+const robotFactory = (model, mobile) => {
+  return {
+    model: model,
+    mobile: mobile,
+    beep(){
+      console.log('Beep Boop')
+    }
+  }
+}
+
+const tinCan = robotFactory('P-500', true)
+tinCan.beep()
+
+// Desctructured Assignment shortcut 
+const robot = {
+  model: '1E78V2',
+  energyLevel: 100,
+  functionality: {
+    beep() {
+      console.log('Beep Boop');
+    },
+    fireLaser() {
+      console.log('Pew Pew');
+    },
+  }
+};
+
+const { functionality } = robot; // instead of const functionality = robot.functionality;
+functionality.beep()
+
+// Built in Object Methods
+
+const robot = {
+  model: 'SAL-1000',
+  mobile: true,
+  sentient: false,
+  armor: 'Steel-plated',
+  energyLevel: 75
+};
+
+// What is missing in the following method call?
+const robotKeys = Object.keys(robot);
+console.log(robotKeys);
+
+// Declare robotEntries below this line:
+
+const robotEntries = Object.entries(robot)
+console.log(robotEntries);
+
+// Declare newRobot below this line:
+
+const newRobot = Object.assign({laserBlaster: true, voiceRecognition: true})
+console.log(newRobot);
+
+// Classes
+
+class Dog {
+  constructor(name) {
+    this._name = name;
+    this._behavior = 0;
+  }
+
+  get name() {
+    return this._name;
+  }
+  get behavior() {
+    return this._behavior;
+  }   
+
+  incrementBehavior() {
+    this._behavior ++;
+  }
+}
+
+const halley = new Dog('Halley');
+console.log(halley.name); // Print name value to console
+console.log(halley.behavior); // Print behavior value to console
+halley.incrementBehavior(); // Add one to behavior
+console.log(halley.name); // Print name value to console
+console.log(halley.behavior); // Print behavior value to console
+
+//----------
+
+class Surgeon {
+  constructor(name, department) {
+    this._name = name;
+    this._department = department;
+    this._remainingVacationDays = 20;
+  }
+  
+  get name() {
+    return this._name;
+  }
+  
+  get department() {
+    return this._department;
+  }
+  
+  get remainingVacationDays() {
+    return this._remainingVacationDays;
+  }
+  
+  takeVacationDays(daysOff) {
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+const surgeonCurry = new Surgeon('Curry', 'Cardiovascular');
+const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
+
+console.log(surgeonCurry.name)
+surgeonCurry.takeVacationDays(3)
+console.log(surgeonCurry.remainingVacationDays)
 
