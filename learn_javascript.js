@@ -424,7 +424,7 @@ console.log(robot.provideInfo());
 // Getters are methods that get and return the internal properties of an object. 
 // But they can do more than just retrieve the value of a property!
 
-const robot = {
+const robot_2 = {
   _model: '1E78V2',
   _energyLevel: 100,
   get energyLevel(){
@@ -436,12 +436,12 @@ const robot = {
   }
 };
 
-console.log(robot.energyLevel);
+console.log(robot_2.energyLevel);
 
 // Setters
 // Setter methods reassign values of existing properties within an object
 
-const robot = {
+const robot_3 = {
   _model: '1E78V2',
   _energyLevel: 100,
   _numOfSensors: 15,
@@ -462,7 +462,7 @@ const robot = {
 };
 
 robot.numOfSensors = 100
-console.log(robot.numOfSensors)
+console.log(robot_2.numOfSensors)
 
 // Factory Functions
 
@@ -480,7 +480,7 @@ const tinCan = robotFactory('P-500', true)
 tinCan.beep()
 
 // Desctructured Assignment shortcut 
-const robot = {
+const robot_4 = {
   model: '1E78V2',
   energyLevel: 100,
   functionality: {
@@ -493,12 +493,12 @@ const robot = {
   }
 };
 
-const { functionality } = robot; // instead of const functionality = robot.functionality;
+const { functionality } = robot_4; // instead of const functionality = robot.functionality;
 functionality.beep()
 
 // Built in Object Methods
 
-const robot = {
+const robot_5 = {
   model: 'SAL-1000',
   mobile: true,
   sentient: false,
@@ -506,13 +506,13 @@ const robot = {
   energyLevel: 75
 };
 
-// What is missing in the following method call?
-const robotKeys = Object.keys(robot);
+
+const robotKeys = Object.keys(robot_5);
 console.log(robotKeys);
 
 // Declare robotEntries below this line:
 
-const robotEntries = Object.entries(robot)
+const robotEntries = Object.entries(robot_5)
 console.log(robotEntries);
 
 // Declare newRobot below this line:
@@ -579,4 +579,45 @@ const surgeonDurant = new Surgeon('Durant', 'Orthopedics');
 console.log(surgeonCurry.name)
 surgeonCurry.takeVacationDays(3)
 console.log(surgeonCurry.remainingVacationDays)
+
+//------ Inheritance
+
+class HospitalEmployee {
+  constructor(name){
+    this._name = name;
+    this._remainingVacationDays = 20;
+  }
+  get name(){
+    return this._name
+  }
+  get remainingVacationDays(){
+    return this._remainingVacationDays
+  }
+  
+  takeVacationDays(daysOff){
+    this._remainingVacationDays -= daysOff;
+  }
+}
+
+class Nurse extends HospitalEmployee {
+  constructor(name, certifications) {
+    super(name);
+    this._certifications = certifications;
+  }
+  
+  get certifications() {
+    return this._certifications;
+  }
+  
+  addCertification(newCertification) {
+    this._certifications.push(newCertification);
+  }
+}
+
+const nurseOlynyk = new Nurse('Olynyk', ['Trauma', 'Pediatrics']);
+
+nurseOlynyk.takeVacationDays(5)
+console.log(nurseOlynyk.remainingVacationDays)
+
+// Static Methods
 
