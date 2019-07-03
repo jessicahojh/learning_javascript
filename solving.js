@@ -6,6 +6,7 @@ function countToTen(){
 
 console.log(countToTen())
 
+
 function findInArray(array, sought){
     for (let index = 0, size = array.length; index < size; index ++) {
         if (array[index] === sought){
@@ -20,3 +21,26 @@ function findInArray(array, sought){
 
 console.log(findInArray([3,5,10,9,24], 9))
 console.log(findInArray([3,5,10,9,24], 0))
+
+
+let add = (a, b) => {
+    return a+b; 
+};
+
+console.log(add(3, 5))
+
+
+const ageResponse = (age) => {
+    if (age < 13) {
+        console.log("You're so young")
+    } else if (age > 13 && age < 20) {
+        console.log("You're a teenager")
+    } else {
+        console.log("You're getting old now!")
+    }
+}
+
+console.log(ageResponse(10))
+console.log(ageResponse(15))
+console.log(ageResponse(22))
+
