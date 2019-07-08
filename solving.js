@@ -32,15 +32,53 @@ console.log(add(3, 5))
 
 const ageResponse = (age) => {
     if (age < 13) {
-        console.log("You're so young")
+        return ("You're so young")
     } else if (age > 13 && age < 20) {
-        console.log("You're a teenager")
+        return ("You're a teenager")
     } else {
-        console.log("You're getting old now!")
+        return ("You're getting old now!")
     }
 }
 
 console.log(ageResponse(10))
 console.log(ageResponse(15))
 console.log(ageResponse(22))
+
+// find max 
+
+function findMax(array){
+    let currentMax = array[0];
+
+    for (num in array){
+        if (array[num] > currentMax){
+            currentMax = array[num]
+        } ;
+
+    }
+    return (currentMax)
+}
+
+console.log(findMax([4,7,2,3,1,9,6]))
+
+// even or odd up to n
+
+function evenOrOdd(n){
+
+    for (let num of Array(n+1).keys()){
+        if (num % 2 === 0) {
+            console.log(num, "is even")
+        } else {
+            console.log(num, "is odd")
+        }
+    }
+
+}
+
+console.log(evenOrOdd(15))
+
+
+
+
+
+
 
