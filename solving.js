@@ -76,6 +76,35 @@ function evenOrOdd(n){
 
 console.log(evenOrOdd(15))
 
+// valid parenthesis
+
+function validParenthesis(string){
+
+    let holder = []
+
+    for (item in string) {
+        
+        if (string[item] === "("){
+            holder.push("(")
+        } else if (string[item] === ")" && holder.length > 0 ){
+            holder.pop()
+        } else if (string[item] === ")" && holder.length === 0 ){
+            return false
+        }
+
+    }
+
+    if (holder.length === 0) {
+        return true
+    } else {
+        return false
+    }
+
+}
+
+console.log(validParenthesis("(e)(erfd)(((v)))")) //true
+console.log(validParenthesis("())rg(2)")) //false 
+
 
 
 
