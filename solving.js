@@ -105,6 +105,35 @@ function validParenthesis(string){
 console.log(validParenthesis("(e)(erfd)(((v)))")) //true
 console.log(validParenthesis("())rg(2)")) //false 
 
+console.log("SPACE")
+
+
+function deepEqual(val1, val2){
+
+    if (val1 === val2){
+        return true
+    } else if (Object.keys(val1) == Object.keys(val2)) {   
+        return true
+    } else {
+        return false
+    }
+
+}
+
+
+let obj = {here: {is: "an"}, object: 2};
+console.log(deepEqual(obj, obj));
+// → true
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// → false
+console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+// → true
+
+console.log(Object.keys(obj))
+console.log(Object.keys({here: {is: "an"}, object: 2}))
+
+console.log(typeof obj)
+console.log(typeof {here: {is: "an"}, object: 2})
 
 
 

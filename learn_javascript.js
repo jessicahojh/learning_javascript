@@ -625,4 +625,32 @@ console.log(nurseOlynyk.remainingVacationDays)
 // Static Methods
 
 
+// Jen's prob, callback function
+
+// function greaterThan(n) {
+//   return m => m > n;
+// }
+
+
+// console.log((greaterThan(10))(11));
+// // True
+
+// greaterThan(10) -> function greaterThan(10) { return m => m > 10}
+
+//                 -> function (greaterThan(10))(11) {return 11 > 10}
+
+function greaterThan(n) {
+  return m => m > n;
+}
+
+let greaterThan10 = greaterThan(10);
+
+console.log(greaterThan10(11));
+// → true
+
+
+
+
+
+
 
