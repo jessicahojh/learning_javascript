@@ -179,13 +179,37 @@ console.log(reverseArrayInPlace([1, 2, 3, 4, 5]))
 // console.log(nth(arrayToList([10, 20, 30]), 1));
 // // → 20
 
-function deepEqual(a, b){
-    if(a===b){
-        return true
-    } else{
-        return false
+// function deepEqual(a, b){
+//     if(a===b){
+//         return true
+//     } else{
+//         return false
+//     }
+
+// }
+
+var deepEqual = function (x, y) {
+    if (x === y) {
+        return true;
+    } 
+    else if ((typeof x == "object" && x != null) && (typeof y == "object" && y != null)) {
+        if (Object.keys(x).length != Object.keys(y).length)
+            return false;
+
+    for (let prop in x) {
+        if (y.hasOwnProperty(prop))
+        {  
+            if (! deepEqual(x[prop], y[prop]))
+                return false;
+        }
+        else
+            return false;
     }
 
+    return true;
+  }
+  else 
+    return false;
 }
 
 let obj = {here: {is: "an"}, object: 2};
@@ -196,6 +220,32 @@ console.log(deepEqual(obj, {here: 1, object: 2}));
 // → false
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
+
+
+function greaterThan(n) {
+  return m => m > n;
+}
+
+let greaterThan10 = greaterThan(10);
+console.log(greaterThan10(11));
+// → true
+
+
+function flatten(arr){
+    answer = [];
+    arr.forEach(function(innerArr){
+        console.log(innerArr)
+
+    innerArr.forEach(function(number){
+        answer.push(number)
+});
+}); return answer
+}
+console.log(flatten([[1, 2, 3], [4, 5], [6]]))
+
+
+
+
 
 
 
