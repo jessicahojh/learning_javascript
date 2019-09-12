@@ -28,7 +28,7 @@ class Snail {
 let jessica = new Snail("Jessica", 2, "female")
 
 // jessica.name = "Kelley"
-jessica.name= "Kelley"
+jessica.name = "Kelley"
 console.log(jessica.name)
 
 
