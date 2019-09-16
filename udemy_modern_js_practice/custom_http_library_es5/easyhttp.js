@@ -1,4 +1,5 @@
 // easyHTTP is the custom AJAX Library we are building 
+//using ES5 objects with prototypes
 
 function easyHTTP() {
   this.http = new XMLHttpRequest();
