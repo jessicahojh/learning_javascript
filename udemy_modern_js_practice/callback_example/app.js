@@ -8,42 +8,52 @@ const posts = [
 
 // function createPost(post) {
 //   setTimeout(function() {
+//     console.log("Starting createPost")
 //     posts.push(post);
-//   }, 2000);
+//     console.log("Finish createPost")
+//   }, 20000);
 // }
 
 
 // function getPosts() {
 //   setTimeout(function() {
 //     let output = '';
+//     console.log("Starting getPosts")
 //     posts.forEach(function(post){
 //       output += `<li>${post.title}</li>`;
 //     });
 //     document.body.innerHTML = output;
-//   }, 1000);
+//     console.log("Finish getPosts")
+//   }, 10000);
 // }
-
+// console.log("Calling createPost")
 // createPost({title: 'Post Three', body: 'This is post three'});
 
+// console.log("Calling getPosts")
 // getPosts();
 
 
 function createPost(post, callback) {
   setTimeout(function() {
+    console.log("Starting createPost")
     posts.push(post);
     callback();
-  }, 2000);
+    console.log("Finish createPost")
+  }, 20000);
 }
 
 
 function getPosts() {
   setTimeout(function() {
+    console.log("Starting getPosts")
     let output = '';
     posts.forEach(function(post){
       output += `<li>${post.title}</li>`;
     });
     document.body.innerHTML = output;
-  }, 1000);
+    console.log("Finish getPosts")
+  }, 10000);
 }
 
+// console.log("Calling createPost")
 createPost({title: 'Post Three', body: 'This is post three'}, getPosts);

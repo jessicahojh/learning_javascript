@@ -9,6 +9,7 @@ function createPost(post) {
       posts.push(post);
 
       const error = false;
+      //const error = true;
 
       if(!error) {
         resolve();
