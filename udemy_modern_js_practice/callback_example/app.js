@@ -11,7 +11,7 @@ const posts = [
 //     console.log("Starting createPost")
 //     posts.push(post);
 //     console.log("Finish createPost")
-//   }, 20000);
+//   }, 2000);
 // }
 
 
@@ -24,7 +24,7 @@ const posts = [
 //     });
 //     document.body.innerHTML = output;
 //     console.log("Finish getPosts")
-//   }, 10000);
+//   }, 1000);
 // }
 // console.log("Calling createPost")
 // createPost({title: 'Post Three', body: 'This is post three'});
@@ -39,7 +39,7 @@ function createPost(post, callback) {
     posts.push(post);
     callback();
     console.log("Finish createPost")
-  }, 20000);
+  }, 2000);
 }
 
 
@@ -52,7 +52,7 @@ function getPosts() {
     });
     document.body.innerHTML = output;
     console.log("Finish getPosts")
-  }, 10000);
+  }, 1000);
 }
 
 // console.log("Calling createPost")
