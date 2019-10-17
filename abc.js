@@ -32,3 +32,35 @@ jessica.name = "Kelley"
 console.log(jessica.name)
 
 
+console.log('BREAKKKKKK')
+
+function start(){
+  var i = 0
+  for(let i = 0; i < 5; i++)
+    console.log(i)
+
+    console.log(i)
+  
+
+}
+
+console.log(start())
+
+// var variables are accessible anywhere in the function.
+// not just the block
+// var variables are attached to the window object
+
+console.log("lalalallla")
+
+function getColor(){
+  if(true){
+    var color = 'blue'
+    console.log(color)
+  }
+  console.log(color)
+}
+
+// console.log(getColor())
+// console.log(color)
+
+window.getColor()
