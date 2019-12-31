@@ -189,9 +189,11 @@ console.log(reverseArrayInPlace([1, 2, 3, 4, 5]))
 // }
 
 var deepEqual = function (x, y) {
+
     if (x === y) {
         return true;
     } 
+
     else if ((typeof x == "object" && x != null) && (typeof y == "object" && y != null)) {
         if (Object.keys(x).length != Object.keys(y).length)
             return false;
@@ -220,6 +222,8 @@ console.log(deepEqual(obj, {here: 1, object: 2}));
 // → false
 console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
 // → true
+console.log(deepEqual(obj.object, 2))
+// → true
 
 
 function greaterThan(n) {
@@ -242,6 +246,29 @@ function flatten(arr){
 }); return answer
 }
 console.log(flatten([[1, 2, 3], [4, 5], [6]]))
+
+
+
+console.log("BREAKKKKKKK")
+
+function testObjCompare(a,b) {
+
+    if (a == b) {
+        return true;
+    } else {
+        return false;
+    }
+
+}
+
+let passwordInput = '123456'
+let object = {username: 'jessica', password: '123456'}
+
+console.log(testObjCompare(passwordInput, object.password)) // true
+
+
+console.log(passwordInput === object.password)
+
 
 
 

@@ -46,31 +46,54 @@ console.log(longestPal('bba'))  // bb
 console.log(longestPal('j'))    // j
 console.log(longestPal('dkwofjjfo')) // ofjjfo
 
-function lengthOfLongestSubstring(s){
+// function lengthOfLongestSubstring(s){
 
-    let windowCharsMap = {};
-    let windowStart = 0;
-    let maxLength = 0;
+//     let windowCharsMap = {};
+//     let windowStart = 0;
+//     let maxLength = 0;
+
+//     for (let i = 0; i < s.length; i++) {
+//         const endChar = s[i];
+
+//         if (windowCharsMap[endChar] >= windowStart) {
+//             windowStart = windowCharsMap[endChar] + 1;
+//         }
+
+//         windowCharsMap[endChar] = i;
+//         maxLength = Math.max(maxLength, i - windowStart + 1);
+//     }
+
+//     return maxLength;
+// }
+
+// console.log(lengthOfLongestSubstring('abcabcbb')) //3
+// console.log(lengthOfLongestSubstring('bbbbb'))    //1
+// console.log(lengthOfLongestSubstring('pwwkew'))   //3 wke
+// console.log(lengthOfLongestSubstring('bbbbyuhb'))  //4
+// console.log(lengthOfLongestSubstring('abcabcabcazbb')) //4
+
+function longestSubstring2(s) {
+
+    let maxLength = 0
+    let holder = []
 
     for (let i = 0; i < s.length; i++) {
-        const endChar = s[i];
+        holder.push(s[i])
+        console.log(holder)
+        let j = i + 1
 
-        if (windowCharsMap[endChar] >= windowStart) {
-            windowStart = windowCharsMap[endChar] + 1;
+        while (s[i] !== s[j]) {
+            holder.push(s[j])
+            j++
+            console.log("no repeat", holder)
         }
-
-        windowCharsMap[endChar] = i;
-        maxLength = Math.max(maxLength, i - windowStart + 1);
+        if (holder.length > maxLength) {
+            maxLength = holder.length
+            holder = []
+        }
     }
-
-    return maxLength;
 }
 
-console.log(lengthOfLongestSubstring('abcabcbb')) //3
-console.log(lengthOfLongestSubstring('bbbbb'))    //1
-console.log(lengthOfLongestSubstring('pwwkew'))   //3 wke
-console.log(lengthOfLongestSubstring('bbbbyuhb'))  //4
-
-
-
-
+console.log(longestSubstring2('abcabcbb')) //3
+// console.log(longestSubstring2('bbbbb'))    //1
+// console.log(longestSubstring2('pwwkew'))   //3
